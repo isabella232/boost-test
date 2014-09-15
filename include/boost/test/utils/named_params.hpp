@@ -296,7 +296,8 @@ optionally_assign( T&, nfp_detail::nil )
 template<typename T, typename Source>
 inline void
 #if BOOST_WORKAROUND( __MWERKS__, BOOST_TESTED_AT( 0x3003 ) ) \
-    || BOOST_WORKAROUND( __DECCXX_VER, BOOST_TESTED_AT(60590042) )
+    || BOOST_WORKAROUND( __DECCXX_VER, BOOST_TESTED_AT(60590042) )\
+    || BOOST_WORKAROUND( __IBMCPP__, <= 800 )
 optionally_assign( T& target, Source src )
 #else
 optionally_assign( T& target, Source const& src )
