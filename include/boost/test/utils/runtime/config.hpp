@@ -45,7 +45,9 @@
 #endif
 
 #ifdef __SUNPRO_CC
-extern int putenv(char*);
+extern "C" {
+    extern int putenv(char*);
+}
 #endif
 
 namespace boost {
