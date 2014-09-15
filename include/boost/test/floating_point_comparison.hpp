@@ -249,6 +249,14 @@ struct BOOST_TEST_DECL check_is_close_t {
 
 namespace {
 check_is_close_t const& check_is_close = unit_test::ut_detail::static_constant<check_is_close_t>::value;
+#if defined( __GNUC__ ) && ( __GNUC__ * 100 + __GNUC_MINOR__ >= 406 )
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wunused-but-set-variable"
+#endif
+void unused() { check_is_close_t t = check_is_close; }
+#if defined( __GNUC__ ) && ( __GNUC__ * 100 + __GNUC_MINOR__ >= 406 )
+#pragma GCC diagnostic pop
+#endif
 }
 
 //____________________________________________________________________________//
@@ -271,6 +279,14 @@ struct BOOST_TEST_DECL check_is_small_t {
 
 namespace {
 check_is_small_t const& check_is_small = unit_test::ut_detail::static_constant<check_is_small_t>::value;
+#if defined( __GNUC__ ) && ( __GNUC__ * 100 + __GNUC_MINOR__ >= 406 )
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wunused-but-set-variable"
+#endif
+void unused_small() { check_is_small_t t = check_is_small; }
+#if defined( __GNUC__ ) && ( __GNUC__ * 100 + __GNUC_MINOR__ >= 406 )
+#pragma GCC diagnostic pop
+#endif
 }
 
 //____________________________________________________________________________//
